@@ -1,4 +1,4 @@
-# Film Rental Database Analysis
+# Movie Rental Database Analysis
 
 This project is project is part of my Data Engineers Masters program.
 
