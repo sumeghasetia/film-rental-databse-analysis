@@ -41,7 +41,7 @@ select f.film_id, f.title, sum(p.amount) Revenue from film f left join inventory
  
 
 --Q10: Most Spending Customer so that we can send him/her rewards or debate points
-select sq.* from (select c.customer_id, c.first_name, c.last_name, c.email, SUM(p.amount) cutomerSpent, RANK() OVER (ORDER BY SUM(p.amount) desc) AS RowRank FROM customer c left join payment p on c.customer_id = p.customer_id group by c.customer_id, c.first_name, c.last_name, c.email order by 5 desc) sq having sq.RowRank = 1;
+select sq.* from (select c.customer_id, c.first_name, c.last_name, c.email, SUM(p.amount) cutomerSpent, RANK() OVER (ORDER BY SUM(p.amount) desc) AS RowRank FROM customer c left join payment p on c.customer_id = p.customer_id where c.active = 1 group by c.customer_id, c.first_name, c.last_name, c.email order by 5 desc) sq having sq.RowRank = 1;
 
  --Q11.  What Store has historically brought the most revenue?
  
